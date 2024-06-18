@@ -1,19 +1,19 @@
 {
     "customer": {
-      "id": 1073339520,
-      "email": "steve.lastnameson@example.com",
+      "id": 1073339521,
+      "email": "shikha.shukla@example.com",
       "created_at": "2024-05-14T21:37:34-04:00",
       "updated_at": "2024-05-14T21:37:34-04:00",
-      "first_name": "Steve",
-      "last_name": "Lastnameson",
+      "first_name": "Shikha",
+      "last_name": "Shukla",
       "state": "enabled",
       "verified_email": true,
       "tags": "",
-      "phone": "+15142546011",
+      "phone": "+15142546034",
       "addresses": [
         {
           "id": 1053317352,
-          "customer_id": 1073339520,
+          "customer_id": 1073339521,
           "first_name": "Mother",
           "last_name": "Lastnameson",
           "company": null,

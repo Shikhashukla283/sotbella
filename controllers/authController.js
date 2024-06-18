@@ -28,18 +28,18 @@ const login = async (req, res) => {
 
         const response = await axios.request(config);
         const accessToken = response.data.access_token;
-
-        const salesForceData = await sendDataToSalesforce(accessToken);
-        res.status(200).json(salesForceData);
+        const salesForceData = await sendDataToSalesforce(res, accessToken);
+        return res.status(200).json(salesForceData);
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: error.response ? error.response.data : error.message });
     }
 };
 
-const sendDataToSalesforce = async (bearerToken) => {
+const sendDataToSalesforce = async (res,bearerToken) => {
     try {
         const accountIntegrationUrl = "https://test.salesforce.com/services/AccountIntegration/";
+        const data = JSON.stringify(customerData.customer)
 
         const config = {
             method: "post",
@@ -48,8 +48,10 @@ const sendDataToSalesforce = async (bearerToken) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${bearerToken}`,
             },
-            data: customerData,
+            data: data,
         };
+        return config;
+
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: error });
